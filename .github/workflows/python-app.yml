@@ -17,7 +17,7 @@ jobs:
             image: python:3.11
             options: --user root
 
-        steps:
+        steps: &install-steps
             - uses: actions/checkout@v4
           #  - name: Set up Python 3.11
           #    uses: actions/setup-python@v4
@@ -51,3 +51,10 @@ jobs:
               uses: codecov/codecov-action@v3
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    build313:
+      runs-on: gha-runner-scale-set
+      container:
+          image: python:3.13
+          options: --user root
+      steps: *install-steps
