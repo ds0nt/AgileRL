@@ -12,7 +12,6 @@ permissions:
 
 jobs:
     build313:
-      runs-on: gha-runner-scale-set
       container:
           image: python:3.13
           options: --user root
